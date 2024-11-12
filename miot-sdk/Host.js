@@ -510,7 +510,7 @@ export default {
   },
   /**
    * @method connectWifi
-   * @since 10100
+   * @since 10101
    * @description 连接wifi
    *
    * @param {string} ssid - ssid
@@ -521,8 +521,19 @@ export default {
      return Promise.resolve(null);
   },
   /**
+   * @method disconnectWifi
+   * @since 10101
+   * @description 连接wifi
+   *
+   * @param {string} ssid - ssid
+   * @returns {Promise}
+   */
+  disconnectWifi(ssid) {
+     return Promise.resolve(null);
+  },
+  /**
    * @method getScanWifiList
-   * @since 10100
+   * @since 10101
    * @description 连接wifi
    *
    * @returns {Promise}
