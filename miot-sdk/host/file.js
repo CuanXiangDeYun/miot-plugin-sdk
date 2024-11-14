@@ -840,12 +840,13 @@ class IFile {
        return Promise.resolve(false)
     }
   /**
-   * 拼接视频文件(支持拼接格式：1:上下，2:左右)
-   * @since 10101
+   * 拼接视频文件(支持拼接格式dir：1:上下，2:左右、黑边space)
+   * @since 10102
    * @param {string} firstVideoPath
    * @param {string} secondVideoPath
-   * @param {int} directtion 1:上下，2:左右
+   * @param {object} params direction: {1:上下，2:左右}
    * @param {string} deviceID 指定的deviceID，不传默认使用本设备id
+   * @param {string} callbackEvent 拼接进度回调事件名
    * @returns {Promise}
    * 成功时：
    *   {"code": 0, "message":"merge success", "fileName": "mergeVideo-11111.mp4" }
@@ -854,16 +855,17 @@ class IFile {
    * @example 参考com.xiaomi.demo Host-->PhotoDemo.js
    */
   @report
-      mergeVideosV2(firstVideoPath, secondVideoPath, directtion, deviceID = undefined) {
+      mergeVideosV2(firstVideoPath, secondVideoPath, params = {}, deviceID = undefined, callbackEvent) {
          return Promise.resolve(false)
       }
   /**
-   * 拼接图片文件(支持拼接格式：1:上下，2:左右)
-   * @since 10101
+   * 拼接图片文件(支持拼接格式dir：1:上下，2:左右、黑边space)
+   * @since 10102
    * @param {string} firstImagePath
    * @param {string} secondImagePath
-   * @param {int} directtion 1:上下，2:左右
+   * @param {object} params directtion 1:上下，2:左右 {dir=1, space=2}
    * @param {string} deviceID 指定的deviceID，不传默认使用本设备id
+   * @param {string} callbackEvent 拼接进度回调事件名
    * @returns {Promise}
    * 成功时：
    *   {"code": 0, "message":"merge success", "fileName": "mergeImage-11111.png" }
@@ -872,7 +874,7 @@ class IFile {
    * @example 参考com.xiaomi.demo Host-->PhotoDemo.js
    */
   @report
-  mergeImagesV2(firstImagePath, secondImagePath, directtion, deviceID = undefined) {
+  mergeImagesV2(firstImagePath, secondImagePath, params = {}, deviceID = undefined, callbackEvent) {
      return Promise.resolve(false)
   }
   /**
