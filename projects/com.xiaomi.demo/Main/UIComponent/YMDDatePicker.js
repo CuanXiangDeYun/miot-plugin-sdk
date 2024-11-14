@@ -1,11 +1,12 @@
 import React from "react";
-import YMDDatePicker from "miot/ui/YMDDatePicker";
+//import YMDDatePicker from "mhui-rn/dist/components/ymdDatePicker";
+import { YMDDatePicker} from "miot/ui"
 import { ListItem, ListItemWithSwitch } from "miot/ui/ListItem/";
 import ChoiceItem from "miot/ui/ListItem/ChoiceItem";
 
 import { ScrollView, View, Text, StyleSheet } from "react-native";
 
-export default class StringSpinnerDemo extends React.Component {
+export default class YMDDatePickerDemo extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,6 +19,7 @@ export default class StringSpinnerDemo extends React.Component {
         multiple: false,
         range: false,
         showWeek: false,
+        showMonth: true,
         showAdjacentMonths: false,
         fullscreen: false,
         max: undefined,
