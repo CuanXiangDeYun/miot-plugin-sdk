@@ -381,6 +381,26 @@ let getInnerOptions = () => {
           />
         );
       }
+    },
+    pairMode: { // 配对模式，只有Matter子设备才会显示这一项
+      exportKey: 'PAIR_MODE',
+      isDefault: true,
+      ownerOnly: true,
+      validator: () => {
+        let isMatter = Device.deviceID.indexOf('M.') === 0 ? true : false; // 所有Matter子设备的id格式均为 "M." + "device_id"，id不为此格式的则不是。
+        return isMatter;
+      },
+      Component: (params) => {
+        return (
+          <ListItem
+            key={"pairMode"}
+            title={"配对模式"}
+            onPress={ () => Host.ui.openMatterConnectPage(Device.deviceID) } 
+            useNewType={true}
+            hideArrow={false}
+          />
+        );
+      }
     }
     // pairMode: { // 配对模式，只有Matter子设备才会显示这一项
     //   exportKey: 'PAIR_MODE',
