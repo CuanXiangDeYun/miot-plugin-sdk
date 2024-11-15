@@ -865,7 +865,6 @@ class IFile {
    * @param {string} secondImagePath
    * @param {object} params directtion 1:上下，2:左右 {dir=1, space=2}
    * @param {string} deviceID 指定的deviceID，不传默认使用本设备id
-   * @param {string} callbackEvent 拼接进度回调事件名
    * @returns {Promise}
    * 成功时：
    *   {"code": 0, "message":"merge success", "fileName": "mergeImage-11111.png" }
@@ -874,7 +873,7 @@ class IFile {
    * @example 参考com.xiaomi.demo Host-->PhotoDemo.js
    */
   @report
-  mergeImagesV2(firstImagePath, secondImagePath, params = {}, deviceID = undefined, callbackEvent) {
+  mergeImagesV2(firstImagePath, secondImagePath, params = {}, deviceID = undefined) {
      return Promise.resolve(false)
   }
   /**
