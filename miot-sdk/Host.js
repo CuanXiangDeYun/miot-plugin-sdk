@@ -532,13 +532,28 @@ export default {
      return Promise.resolve(null);
   },
   /**
-   * @method getScanWifiList
-   * @since 10101
-   * @description 连接wifi
-   *
-   * @returns {Promise}
+   * 非Q版本的扫描Wi-Fi接口
+   * @returns {Promise<unknown> | Promise.Promise}
    */
-  getScanWifiList() {
+  scanWifiBeforeQ() {
+     return Promise.resolve(null);
+  },
+  /**
+   * 非Q版本的连接Wi-Fi接口
+   * @param ssid
+   * @param passwd
+   * @returns {Promise<unknown> | Promise.Promise}
+   */
+  connectWifiBeforeQ(ssid, passwd = '') {
+     return Promise.resolve(null);
+  },
+  /**
+   * Q版本之后的接口：插件直接调用，然后弹出系统半窗，这个半窗会自动扫描，然后用户选择后，给插件回调
+   * @param ssid
+   * @param passwd
+   * @returns {Promise<unknown> | Promise.Promise}
+   */
+  connectWifiAfterQ(ssid, passwd = '') {
      return Promise.resolve(null);
   }
 };
