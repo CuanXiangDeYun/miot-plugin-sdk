@@ -521,17 +521,6 @@ export default {
      return Promise.resolve(null);
   },
   /**
-   * @method disconnectWifi
-   * @since 10101
-   * @description 连接wifi
-   *
-   * @param {string} ssid - ssid
-   * @returns {Promise}
-   */
-  disconnectWifi(ssid) {
-     return Promise.resolve(null);
-  },
-  /**
    * 非Q版本的扫描Wi-Fi接口
    * @returns {Promise<unknown> | Promise.Promise}
    */
