@@ -25,6 +25,9 @@ export const Permissions = {
   "RECORD_AUDIO": "record_audio",
   "LOCATION": "location"
 };
+export const SystemConfig = {
+  "NOTIFICATION": "notification"
+};
 class IPermission {
   /**
    * @typedef {Object} PermissionInfo
@@ -65,10 +68,61 @@ class IPermission {
   });
    */
   @report
-  request(permission) {
+  request = (permission) => {
     return this._request(permission);
   }
   _request(permission, returnInfo = false) {
+  }
+  /**
+   * 检查是否给予APP某项系统权限，有别于会弹出系统弹窗的那些“高敏感”权限，这里指的是一些安全性低的权限，比如是否打开了APP推送通知的权限
+   * @param type{SystemConfig<string>} 某项权限类型
+   * @return {Promise<object>}
+   * 成功时object:{
+   *   code:0,
+   *   data: {
+   *     enable: true/false
+   *     status: (iOS通知权限: 0/1/2/3/4 分别对应状态：NotDetermined/Denied/Authorized/Provisional/Ephemeral)
+   *   }
+   * }
+   * 失败时object:{
+   *   code:-1, 
+   *   message:"xxxxxx"
+   * }
+   */
+  checkAPPSystemConfigEnable(type) {
+  }
+  /**
+   * 打开设置权限的页面，用于引导用户启用某项低敏感的权限
+   * @param type{SystemConfig<string>}
+   */
+  openAPPSystemConfigPage(type) {
+  }
+  
+  /**
+   * @since 10102
+   * 开始电话监听
+   * callbackEvent(string) 回调事件类型 会通过这个发送自定义事件 
+   * @return{Promise} 监听到数据通过callEventName 自定义事件返回 
+   * {
+        "state" = 0; // 0:来电 1:接通 2:挂断 3:拨打
+    };
+   */
+  startPhoneCallListener(callEventName) {
+  }
+  /**
+   * @since 10102
+   * 停止电话监听
+   */
+  stopPhoneCallListener() {
+    return new Promise((resolve, reject) => {
+      native.MIOTSystem.stopPhone((ok, res) => {
+        if (ok) {
+          resolve(res);
+        } else {
+          reject(res);
+        }
+      });
+    });
   }
 }
 function getPermissionString(permission) {
