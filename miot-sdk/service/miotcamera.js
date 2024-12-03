@@ -986,6 +986,14 @@ class IMiotCamera {
     tutkSessionWrite(ioCtrlBuffInBase64, did = Device.deviceID) {
        return Promise.resolve(null);
     }
+    /**
+     * 门锁远程开锁
+     * @since 10102
+     * @param {Device.deviceID} did
+     */
+    startUnlockDevice(did = Device.deviceID) {
+       return Promise.resolve(null);
+    }
 }
 const MiotCameraInstance = new IMiotCamera();
 export default MiotCameraInstance;

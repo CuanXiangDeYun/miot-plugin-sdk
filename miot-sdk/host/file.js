@@ -840,6 +840,43 @@ class IFile {
        return Promise.resolve(false)
     }
   /**
+   * 拼接视频文件(支持拼接格式dir：1:上下，2:左右、黑边space)
+   * @since 10102
+   * @param {string} firstVideoPath
+   * @param {string} secondVideoPath
+   * @param {object} params direction: {1:上下，2:左右}
+   * @param {string} deviceID 指定的deviceID，不传默认使用本设备id
+   * @param {string} callbackEvent 拼接进度回调事件名
+   * @returns {Promise}
+   * 成功时：
+   *   {"code": 0, "message":"merge success", "fileName": "mergeVideo-11111.mp4" }
+   * 失败时：code < 0
+   *  {"code":xx, "message":"merge failure" }
+   * @example 参考com.xiaomi.demo Host-->PhotoDemo.js
+   */
+  @report
+      mergeVideosV2(firstVideoPath, secondVideoPath, params = {}, deviceID = undefined, callbackEvent) {
+         return Promise.resolve(false)
+      }
+  /**
+   * 拼接图片文件(支持拼接格式dir：1:上下，2:左右、黑边space)
+   * @since 10102
+   * @param {string} firstImagePath
+   * @param {string} secondImagePath
+   * @param {object} params directtion 1:上下，2:左右 {dir=1, space=2}
+   * @param {string} deviceID 指定的deviceID，不传默认使用本设备id
+   * @returns {Promise}
+   * 成功时：
+   *   {"code": 0, "message":"merge success", "fileName": "mergeImage-11111.png" }
+   * 失败时：code < 0
+   *  {"code":xx, "message":"merge failure" }
+   * @example 参考com.xiaomi.demo Host-->PhotoDemo.js
+   */
+  @report
+  mergeImagesV2(firstImagePath, secondImagePath, params = {}, deviceID = undefined) {
+     return Promise.resolve(false)
+  }
+  /**
    * 从did命名的相册中 通过url获取视频文件的filepath
    * @since 10037
    * @param {string} url
@@ -855,9 +892,9 @@ class IFile {
    * @example 参考com.xiaomi.demo Host-->PhotoDemo.js
    */
   @report
-      fetchLocalVideoFilePathFromDidAlbumByUrl(url, customDirName = null, deviceID = undefined) {
-         return Promise.resolve(false)
-      }
+  fetchLocalVideoFilePathFromDidAlbumByUrl(url, customDirName = null, deviceID = undefined) {
+     return Promise.resolve(false)
+  }
   /**
    * 获取指定以did命名的相册中所有的图片和视频
    * 如果不存在该相册，返回空数组
