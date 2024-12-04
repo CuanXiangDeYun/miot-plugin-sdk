@@ -146,8 +146,10 @@ function DeviceTypeItems({ params }) {
 }
 DeviceTypeItems.propTypes = itemPropTypes;
 export default function FeatureSettings({ children, ...params }) {
+  const { extraOptions } = params;
+  const hideHeaderBasicInfo = extraOptions?.hideHeaderBasicInfo;
   return (
-    <Section title={I18n.featureSetting}>
+    <Section title={I18n.featureSetting} showSeparator={!hideHeaderBasicInfo}>
       <ConfiguredItems params={params} />
       {children}
       <DeviceTypeItems params={params} />

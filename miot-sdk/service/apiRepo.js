@@ -153,6 +153,7 @@ const API_REPO = {
   '/miot/camera/app/v2/get/alarmSwitch': {},
   '/miot/camera/app/v2/put/motionDetectionSwitch': {},
   '/common/app/file/delete/status': {},
+  '/miot/camera/app/v1/set/pushStyle':{},
   '/v2/public/get_weekday_info': {},
   '/v2/device/blt_get_beaconkey': {},
   '/v2/device/set_alarm_info': {},
@@ -308,6 +309,7 @@ const API_REPO = {
   '/common/app/get/faceCluster/eventlist': {},
   // 根据用户的uid换取微信小程序的openid
   '/wx_call/get_openid_by_uid': {},
+  '/wx_call/del_call_only_contact_device_permit': {},
   // 耗材标准配置服务端接口
   '/v2/home/standard_consumable_items': {},
   // 获取中枢的列表
@@ -320,7 +322,6 @@ const API_REPO = {
   '/v2/product/get_product_brands': {},
   // 事件统计
   '/common/app/get/event/statistics': {},
-  
   // 趣拍回忆相关
   '/miot/camera/app/v1/nineSeconds/m3u8': {},
   '/common/app/v1/dailyStory/generateMemory': {},
@@ -331,7 +332,6 @@ const API_REPO = {
   '/common/app/v1/dailyStory/generateMemory': {},
   '/common/app/get/emotion/status': {},
   '/common/app/get/event/emostatiscs': {},
-    
   // M30门锁相关
   '/scenesrv/apppushservice/GetDeviceEmergencyTelephoneNotificationInfo': {},
   // 事件顺序相关

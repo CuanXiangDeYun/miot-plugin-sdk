@@ -16,6 +16,10 @@ export default function BasicInfo({ options, customOptions, showDots, extraOptio
   const iconURL = useDeviceIcon();
   const roomInfo = useDeviceRoomInfo();
   const name = useDeviceName();
+  const { hideHeaderBasicInfo } = extraOptions || {};
+  if (hideHeaderBasicInfo) {
+    return null;
+  }
   return (
     <View style={Styles.container}>
       <View style={Styles.content}>

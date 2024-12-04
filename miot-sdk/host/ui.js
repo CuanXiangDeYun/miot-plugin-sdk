@@ -1205,6 +1205,27 @@ class IUi {
    @report
    openConfigRouterSubPage() {
    }
+  /**
+   * @since 10102
+   * 打开选择位置地图弹框
+   * @param
+   * param.title(string) 标题
+   * param.message(string) 副标题 
+   * param.homeId(string)  家庭Id 不传默认当前家庭Id
+   * param.titleType(string) title类型(sunrise/sunset) 当title和message都不传时 会根据这个类型展示不同的默认title以及messge
+   * param.callbackEvent(string) 回调事件类型 会通过这个发送自定义事件 
+   * @return{Promise} 弹框点确定成功通过callbackEvent 自定义事件返回 
+   * {
+        "city_id" = 101010100;
+        "home_addr" = "xx";
+        latitude = "40.06043341349643";
+        longitude = "116.3078702476689";
+    };
+   */
+   @report
+   openSelectLocationMapDialog(param) {
+   }
+  
     /**
    * 打开设备中枢功能页
    * @param  暂传空

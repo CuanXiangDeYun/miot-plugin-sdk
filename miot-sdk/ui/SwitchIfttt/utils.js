@@ -480,3 +480,24 @@ export function getSwitchTypeKey(spec) {
   const { miid, siid, piid } = spec || {};
   return miid ? `${ Device.deviceID }.${ miid }.${ siid }.${ piid }` : `${ Device.deviceID }.${ siid }.${ piid }`;
 }
+export function getSwitchTypeDeviceSettingKey(spec) {
+  const { miid, siid, piid } = spec || {};
+  return miid ? `SwitchType.${ miid }.${ siid }.${ piid }` : `SwitchType.${ siid }.${ piid }`;
+}
+export function getSwitchTypeBySceneAction(sceneAction) {
+  const { payload_json, type } = sceneAction?.actions[0] || {};
+  if (type === 2) {
+    return SWITCH_DEVICE_TYPE.MANUAL_SCENE;
+  }
+  if (type === 0) {
+    const model = payload_json?.model || '';
+    const modelMiddle = model.split('.')[1];
+    if (['switch', 'control-panel', 'relay', 'ctrl_ln2', 'ctrl_ln1', 'ctrl_neutral2', 'ctrl_neutral1'].includes(modelMiddle)) {
+      return SWITCH_DEVICE_TYPE.SMART_SWITCH;
+    }
+    if (['light'].includes(modelMiddle)) {
+      return SWITCH_DEVICE_TYPE.SMART_LIGHT;
+    }
+  }
+  return '';
+}
