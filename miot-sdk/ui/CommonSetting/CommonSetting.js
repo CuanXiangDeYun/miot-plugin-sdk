@@ -1276,6 +1276,10 @@ export default class CommonSetting extends React.Component {
         return key !== AllOptions.LOCATION && key !== AllOptions.SHARE && key !== AllOptions.FREQ_DEVICE;
       });
     }
+    // 配合C501标插安全设置权重需求
+    if (Device.model == "chuangmi.camera.079ac1" || Device.model == "chuangmi.camera.079ae2") {
+      AllOptionsWeight[AllOptions.SECURITY] = 24;
+    }
     // 4.5 所有设置项顺序固定，20190708 / SDK_10023
     keys.sort((keyA, keyB) => {
       let weightA, weightB;
