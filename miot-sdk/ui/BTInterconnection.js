@@ -500,7 +500,7 @@ const Styles = StyleSheet.create({
   },
   toastContainer: {
     position: 'absolute',
-    bottom: adjustSize(258),
+    bottom: 60,
     maxWidth: adjustSize(900),
     alignSelf: 'center',
     paddingHorizontal: adjustSize(45),
