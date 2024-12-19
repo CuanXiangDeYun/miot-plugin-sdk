@@ -109,7 +109,7 @@ let getInnerOptions = () => {
         useEffect(() => {
           // 固件升级曝光埋点
           Service.smarthome.updatePluginPageRef({ 'ref': 'plugin_homepage', 'sub_ref': 'plugin_setting' });
-          const params = { 'ota_origin': 2, 'ota_type': 3, 'did': Device.did,
+          const params = { 'ota_origin': 2, 'ota_type': 3, 'did': Device.deviceID,
             'device_model': Device.model, 'mac': Device.mac, 'item_type': 'button', 'item_name': 'firmware_updates_link_button' };
           Service.smarthome.reportEventRefChannel("expose", params);
         }, []);
@@ -119,6 +119,11 @@ let getInnerOptions = () => {
             title={I18n.firmwareUpgrade}
             showDot={canUpgrade && !clicked}
             onPress={delegatePress(({ navigation, extraOptions = {} }) => {
+              // 固件升级点击埋点
+              Service.smarthome.updatePluginPageRef({ 'ref': 'plugin_homepage', 'sub_ref': 'plugin_setting' });
+              const params = { 'ota_origin': 2, 'ota_type': 3, 'did': Device.deviceID,
+                'device_model': Device.model, 'mac': Device.mac, 'item_type': 'button', 'item_name': 'firmware_updates_link_button' };
+              Service.smarthome.reportEventRefChannel("click", params);
               const { type, model } = Device;
               const { showUpgrade, upgradePageKey, bleOtaAuthType } = extraOptions || {};
               // showUpgrade 未设置，则当做true，可以简化配置
@@ -155,11 +160,6 @@ let getInnerOptions = () => {
                 }
                 // 缺省情况
                 Host.ui.openDeviceUpgradePage(1);
-                // 固件升级点击埋点
-                Service.smarthome.updatePluginPageRef({ 'ref': 'plugin_homepage', 'sub_ref': 'plugin_setting' });
-                const params = { 'ota_origin': 2, 'ota_type': 3, 'did': Device.did,
-                  'device_model': Device.model, 'mac': Device.mac, 'item_type': 'button', 'item_name': 'firmware_updates_link_button' };
-                Service.smarthome.reportEventRefChannel("click", params);
               }).catch(() => {});
             }, params, 'firmwareUpgrade', click)}
             useNewType={true}

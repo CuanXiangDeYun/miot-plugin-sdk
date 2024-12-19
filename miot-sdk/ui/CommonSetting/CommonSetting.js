@@ -1319,7 +1319,7 @@ export default class CommonSetting extends React.Component {
             // 设置页固件升级曝光埋点
             if (item.key === AllOptions.FIRMWARE_UPGRADE) {
               Service.smarthome.updatePluginPageRef({ 'ref': 'plugin_homepage', 'sub_ref': 'plugin_setting' });
-              const params = { 'ota_origin': 2, 'ota_type': 3, 'did': Device.did,
+              const params = { 'ota_origin': 2, 'ota_type': 3, 'did': Device.deviceID,
                 'device_model': Device.model, 'mac': Device.mac, 'item_type': 'button', 'item_name': 'firmware_updates_link_button' };
               Service.smarthome.reportEventRefChannel("expose", params);
             }
@@ -1399,7 +1399,7 @@ export default class CommonSetting extends React.Component {
                       // 设置页固件升级点击埋点
                       if (item.key === AllOptions.FIRMWARE_UPGRADE) {
                         Service.smarthome.updatePluginPageRef({ 'ref': 'plugin_homepage', 'sub_ref': 'plugin_setting' });
-                        const params = { 'ota_origin': 2, 'ota_type': 3, 'did': Device.did,
+                        const params = { 'ota_origin': 2, 'ota_type': 3, 'did': Device.deviceID,
                           'device_model': Device.model, 'mac': Device.mac, 'item_type': 'button', 'item_name': 'firmware_updates_link_button' };
                         Service.smarthome.reportEventRefChannel("click", params);
                       }
