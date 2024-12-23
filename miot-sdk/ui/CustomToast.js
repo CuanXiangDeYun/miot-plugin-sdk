@@ -69,7 +69,8 @@ const styles = dynamicStyleSheet({
   container: {
     zIndex: 666,
     position: 'absolute',
-    left: -150
+    alignItems: 'center',
+    width: '100%'
   },
   textContainer: {
     minHeight: adjustSize(135),
